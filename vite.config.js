@@ -6,10 +6,10 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/auth': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-      }
+    '/auth': {
+      target: 'http://192.168.1.244:3000',
+      changeOrigin: true,
     }
+  }
   }
 })
