@@ -14,7 +14,15 @@ async function request(path, options = {}) {
 }
 
 export const api = {
-  register: (body) => request('/register', { method: 'POST', body: JSON.stringify(body) }),
-  login:    (body) => request('/login',    { method: 'POST', body: JSON.stringify(body) }),
-  refresh:  (refreshToken) => request('/refresh-token', { method: 'POST', body: JSON.stringify({ refreshToken }) }),
+  register: (body) =>
+    request('/auth/register', { method: 'POST', body: JSON.stringify(body) }),
+
+  login: (body) =>
+    request('/auth/login', { method: 'POST', body: JSON.stringify(body) }),
+
+  refresh: (refreshToken) =>
+    request('/auth/refresh-token', {
+      method: 'POST',
+      body: JSON.stringify({ refreshToken }),
+    }),
 };
